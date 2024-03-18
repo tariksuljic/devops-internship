@@ -7,13 +7,17 @@ websites=(
   "www.meta.com"
 )
 
-for website in "${websites[@]}"
-do
-  
-  if curl --silent --head --fail "$website" > /dev/null;then
+test_connection(){
+if curl --silent --head --fail "$website" > /dev/null;then
     echo "$website is reachable"
   else
     echo "$website is not reachable"
   fi
+}
+
+for website in "${websites[@]}"
+do
+  
+  test_connection $website
 
 done
