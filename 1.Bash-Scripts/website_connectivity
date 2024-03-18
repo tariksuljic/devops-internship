@@ -1,0 +1,12 @@
+#!/bin/bash
+
+websites=(
+    "www.youtube.com"
+    "www.instagram.com"
+    "www.somesite.com"
+)
+
+for website in "${websites[@]}"
+do
+    echo "$website"
+done
