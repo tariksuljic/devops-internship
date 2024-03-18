@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+#Get the CPU and Memory usage
+
+#Get the overall CPU usage percentage by subtracting the idle time from 100
+cpu_usage=$(top -b -n1 | awk '/%Cpu/ { print 100-$8}')
+echo "The overall CPU usage is ${cpu_usage}%"
+
+
