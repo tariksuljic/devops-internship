@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# Test the connectivity to a list of websites
 
 websites=(
   "www.youtube.com"
