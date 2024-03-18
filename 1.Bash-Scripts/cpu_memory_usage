@@ -13,4 +13,6 @@ echo "The total memory is ${total_memory} MB"
 used_memory=$(free -m | awk '/Mem:/ {print $3}')
 echo "The used memory is ${used_memory} MB"
 
-
+#Calculate the overall memory usage percentage
+memory_usage=$((used_memory * 100 / total_memory))
+echo "The overall memory usage is ${memory_usage}%"
