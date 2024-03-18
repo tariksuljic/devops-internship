@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# 
+
+domains=(
+    "www.google.com"
+    "www.facebook.com"
+    "www.instagram.com"
+)
+
+for domain in "${domains[@]}"
+do
+  echo $domain
+
+done
