@@ -1,12 +1,19 @@
 #!/bin/bash
 
 websites=(
-    "www.youtube.com"
-    "www.instagram.com"
-    "www.somesite.com"
+  "www.youtube.com"
+  "www.instagram.com"
+  "www.somesitesdfsdf.com"
+  "www.meta.com"
 )
 
 for website in "${websites[@]}"
 do
-    echo "$website"
+  
+  if curl --silent --head --fail "$website" > /dev/null;then
+    echo "$website is reachable"
+  else
+    echo "$website is not reachable"
+  fi
+
 done
