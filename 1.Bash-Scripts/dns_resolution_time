@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# 
+# Get DNS resolution times for a list of domains
 
 domains=(
     "www.google.com"
@@ -8,8 +8,14 @@ domains=(
     "www.instagram.com"
 )
 
+get_dns_resolution_time(){
+    dig $domain | awk '/Query time/ {print $4}'
+}
+
 for domain in "${domains[@]}"
 do
-  echo $domain
+  resolution_time=$(get_dns_resolution_time $domain)
+  echo "The DNS resolution time for $domain is $resolution_time ms"
+    
 
 done
