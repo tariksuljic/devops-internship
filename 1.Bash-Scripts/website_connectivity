@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Test the connectivity to a list of websites
+
+websites=(
+  "www.youtube.com"
+  "www.instagram.com"
+  "www.somesitesdfsdf.com"
+  "www.meta.com"
+)
+
+test_connection(){
+if curl --silent --head --fail "$website" > /dev/null;then
+    echo "$website is reachable"
+  else
+    echo "$website is not reachable"
+  fi
+}
+
+for website in "${websites[@]}"
+do
+  
+  test_connection $website
+
+done

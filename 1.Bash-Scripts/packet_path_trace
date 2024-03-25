@@ -1,0 +1,7 @@
+#! /bin/bash
+#
+# Trace a path of a network packet from source to destination
+
+destination="www.avaz.ba"
+
+traceroute -m 10 $destination

@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+#Get the CPU and Memory usage
+
+#Get the overall CPU usage percentage by subtracting the idle time from 100
+cpu_usage=$(top -b -n1 | awk '/%Cpu/ { print 100-$8}')
+echo "The overall CPU usage is ${cpu_usage}%"
+
+#Get the total and used memory in megabytes
+total_memory=$(free -m | awk '/Mem:/ {print $2}')
+echo "The total memory is ${total_memory} MB"
+
+used_memory=$(free -m | awk '/Mem:/ {print $3}')
+echo "The used memory is ${used_memory} MB"
+
+#Calculate the overall memory usage percentage
+memory_usage=$((used_memory * 100 / total_memory))
+echo "The overall memory usage is ${memory_usage}%"
